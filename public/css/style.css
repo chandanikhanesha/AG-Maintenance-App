@@ -1,0 +1,307 @@
+body {
+  margin: 50px 50px;
+  padding: 0;
+  font-family: "Nunito Sans", "Helvetica", "Arial", sans-serif;
+  background: #eeeeee;
+}
+
+.card {
+  margin-bottom: 20px;
+  border: none;
+}
+
+.box {
+  width: 500px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #191919;
+  text-align: center;
+  transition: 0.25s;
+  margin-top: 100px;
+}
+
+.box input {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 10px 10px;
+  width: 250px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+.box h1 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.box input:focus {
+  width: 300px;
+  border-color: #2ecc71;
+}
+
+.box button[type="submit"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.box button[type="submit"]:hover {
+  background: #2ecc71;
+}
+
+.forgot {
+  text-decoration: underline;
+}
+
+ul.social-network {
+  list-style: none;
+  display: inline;
+  margin-left: 0 !important;
+  padding: 0;
+}
+
+ul.social-network li {
+  display: inline;
+  margin: 0 5px;
+}
+
+.social-network a.icoFacebook:hover {
+  background-color: #3b5998;
+}
+
+.social-network a.icoTwitter:hover {
+  background-color: #33ccff;
+}
+
+.social-network a.icoGoogle:hover {
+  background-color: #bd3518;
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i {
+  color: #fff;
+}
+
+a.socialIcon:hover,
+.socialHoverClass {
+  color: #44bcdd;
+}
+
+.social-circle li a {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto 0 auto;
+  border-radius: 50%;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.social-circle li i {
+  margin: 0;
+  line-height: 50px;
+  text-align: center;
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+  transform: rotate(360deg);
+  transition: all 0.2s;
+}
+
+.social-circle i {
+  color: #fff;
+  transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.Connect\(Layout\)-content-249 {
+  padding: 16px 15px;
+}
+
+.Connect\(Layout\)-container-250 {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.CustomersList-cardHeaderContent-349 {
+  display: flex;
+  margin-top: 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CustomersList-cardIconTitle-347 {
+  color: #3c4858;
+  margin-top: 0;
+  min-height: auto;
+  font-family: "Nunito Sans", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+
+.RegularButton-primary-220 {
+  box-shadow: 0 2px 2px 0 rgb(156 39 176 / 14%),
+    0 3px 1px -2px rgb(156 39 176 / 20%), 0 1px 5px 0 rgb(56 161 136 / 12%);
+  background-color: #38a154;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  margin: 0.3125rem 1px;
+  padding: 12px 30px;
+  position: relative;
+  font-size: 12px;
+  min-width: auto;
+  box-shadow: 0 2px 2px 0 rgb(153 153 153 / 14%),
+    0 3px 1px -2px rgb(153 153 153 / 20%), 0 1px 5px 0 rgb(153 153 153 / 12%);
+  min-height: auto;
+  text-align: center;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1),
+    background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  line-height: 1.42857143;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  touch-action: manipulation;
+  border-radius: 3px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+.RegularButton-primary-220 a {
+  color: white;
+  text-decoration: none;
+}
+
+.card-white {
+  color: rgba(0, 0, 0, 0.87);
+  width: 100%;
+  border: 0;
+  /* display: flex; */
+  position: relative;
+  font-size: 0.875rem;
+  min-width: 0;
+  word-wrap: break-word;
+  background: #fff;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+  margin-top: 30px;
+  border-radius: 6px;
+  margin-bottom: 30px;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 0.9375rem 20px;
+  position: relative;
+  -webkit-box-flex: 1;
+}
+
+.CardHeader-cardHeaderText-481 {
+  padding: 15px;
+  margin-top: -20px;
+  border-radius: 3px;
+  background: #2b2a2a;
+  box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%),
+    0 7px 10px -5px rgb(43 42 42 / 40%);
+  color: #ffffff;
+
+  position: relative;
+  text-align: center;
+  z-index: 3 !important;
+}
+
+.Card-cardLogin-84 {
+  transform: translate3d(0, 0, 0);
+  transition: all 300ms linear;
+  color: rgba(0, 0, 0, 0.87);
+  width: 100%;
+  border: 0;
+  display: flex;
+  position: relative;
+  font-size: 0.875rem;
+  min-width: 0;
+  word-wrap: break-word;
+  background: #fff;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+  margin-top: 30px;
+  border-radius: 6px;
+  margin-bottom: 30px;
+  flex-direction: column;
+}
+
+.Connect\(LogIn\)-cardTitle-22 {
+  color: #ffffff;
+  margin-top: 0;
+  min-height: auto;
+  font-family: "Nunito Sans", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+  margin-bottom: 3px;
+  text-decoration: none;
+}
+
+.CardBody-cardBody-100 {
+  flex: 1 1 auto;
+  padding: 0.9375rem 20px;
+  position: relative;
+  -webkit-box-flex: 1;
+}
+
+.CustomInput-formControl-118 {
+  margin: 0 0 17px 0;
+  position: relative;
+  padding-top: 27px;
+  width: 100%;
+  border: 0;
+  display: inline-flex;
+  position: relative;
+  min-width: 0;
+  flex-direction: column;
+  vertical-align: top;
+}
+
+.CardFooter-cardFooter-122 {
+  border: 0;
+  margin: 0 15px 10px;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  border-radius: 0;
+  justify-content: space-between;
+  background-color: transparent;
+}
+.pagination li:hover{
+  cursor: pointer;
+}
+
+.page-link{
+  color: #191919;
+}
+
+.filterLabel{
+  width: 75px;
+                align-items: center;
+                display: flex;
+}

@@ -1,0 +1,196 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet"
+        type="text/css" />
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <title>Index page</title>
+</head>
+
+<body>
+ 
+    <div class="container">
+        <div class="d-flex justify-content-between mt-3">
+            <h1 class="CustomersList-cardIconTitle-347">Topic Data</h1>
+
+                <button class="RegularButton-primary-220 ">
+                    <a href="/topicForm"> Back To Form Page</a>
+                </button>
+      </div>
+
+        <!-- //show all data of totorial table  -->
+        <div class="row">
+            <% if (topicOrder.length===0) { %>
+                <div class="card-white">
+                    <div class="CustomersList-cardHeaderContent-349 justify-content-center">
+                        <h5 class="CustomersList-cardIconTitle-347">No Record Found</h5>
+                    </div>
+                </div>
+
+                <%} else { %>
+                    <div class="card-white">
+
+                        <table class="table table-striped table-class" id="table-id">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Topic Order</th>
+                                    <th>Topic Name</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i=0; i<topicOrder.length; i++) {%>
+                                    <tr>
+                                        <td>
+                                            <%= topicOrder[i].id %>
+                                        </td>
+
+                                        <td>
+                                            <%= topicOrder[i].topicOrder %>
+                                        </td>
+                                        <td>
+                                            <%= topicOrder[i].topicName %>
+                                        </td>
+
+                                        <td class="d-flex">
+                                            <button type="button" class="btn btn-danger ml-3" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal"
+                                                onclick="editTopic('<%= topicOrder[i].topicOrder %>')">Edit</button>
+                                            <button type="button" class="btn btn-dark"
+                                                onclick="deleteTopic('<%= topicOrder[i].topicOrder %>')">
+                                                Delete</button>
+                                        </td>
+
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <% } %>
+        </div>
+
+        <!-- edit model for update record -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Topics <p id="editId"></p>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <div class="CardBody-cardBody-100">
+                            TopicOrder: <input type="number" name="topicOrder" id="editTopicOrder"
+                                placeholder="Enter TopicOrder" style="margin-bottom: 20px; width: 100%" required />
+
+                            TopicName: <input type="text" name="topicName" id="editTopicName"
+                                placeholder="Enter TopicName" style="margin-bottom: 20px; width: 100%" required />
+                            </br>
+
+                            <!-- <input type="file" name="images" placeholder="Enter Images"  style="margin-bottom: 20px; width: 100%" required/> -->
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="saveEditChanges()"
+                                data-bs-dismiss="modal">Save
+                                changes</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+<script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
+<script>
+    function editTopic(id) {
+        // console.log(id, "data")
+        const xhr = new XMLHttpRequest();
+
+        xhr.open("GET", "/getTopic");
+
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send()
+
+        xhr.onreadystatechange = function () {
+            // console.log(JSON.parse(xhr.responseText));
+            const data = JSON.parse(xhr.responseText)
+            const unique = [
+                ...new Map(
+                    data.map((item) => [item["topicOrder"], item])
+                ).values(),
+            ];
+            const editData = unique.length > 0 && unique.find((d) => d.topicOrder == id)
+            // console.log(editData, "editData")
+            document.getElementById("editId").value = editData.topicOrder;
+            document.getElementById('editTopicOrder').value = editData.topicOrder;
+            document.getElementById('editTopicName').value = editData.topicName;
+        };
+
+
+    }
+
+    function saveEditChanges() {
+        var params = {
+            "id": document.getElementById("editId").value,
+            "topicOrder": document.getElementById('editTopicOrder').value,
+            "topicName": document.getElementById('editTopicName').value,
+
+
+
+
+        }
+        const xhr = new XMLHttpRequest();
+
+        xhr.open("PATCH", "/editTopic");
+
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send(JSON.stringify(
+            params
+        ))
+        setTimeout(() => {
+            location.reload()
+        }, 500);
+    }
+
+    function deleteTopic(id) {
+        console.log(id, "id")
+        var params = {
+            "id": id,
+
+        }
+        const xhr = new XMLHttpRequest();
+
+        xhr.open("DELETE", "/deleteTopic");
+
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send(JSON.stringify(
+            params
+        ))
+        setTimeout(() => {
+            location.reload()
+        }, 500);
+    }
+
+    new FroalaEditor('textarea');
+</script>
+
+
+</html>

@@ -1,0 +1,4 @@
+tableName,date,invoiceAmount,paymentHistory,balanceDue
+Bayer,2/15/2023,8050,23,8027
+Bayer,7/30/2023,8280,0,8918.89
+nonEarlyPay,-,60,0,160
